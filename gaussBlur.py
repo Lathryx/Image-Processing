@@ -2,6 +2,10 @@ from PIL import Image
 import numpy as np 
 import sys
 
+if len(sys.argv) < 3: 
+    print("Usage: python gaussBlur.py <path to image> <name of output file> <blur radius>") 
+    sys.exit() 
+
 imgDir = sys.argv[1]
 out = sys.argv[2]
 blurRadius = int(sys.argv[3]) 

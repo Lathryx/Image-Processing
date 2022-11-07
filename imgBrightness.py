@@ -1,12 +1,13 @@
 from PIL import Image
 
 imgDir = input("Path to image: ") 
+outDir = input("Name the output file: ") 
 im = Image.open(imgDir)
 w, h = im.size 
 pixels = im.load() 
 for i in range(h): 
     for j in range(w): 
-        vals = pixels[i,j] 
+        vals = pixels[j,i] 
         newVals = [] 
         for val in vals: 
             if val < 206: 
@@ -14,6 +15,6 @@ for i in range(h):
             else: 
                 newVals.append(255) 
         
-        pixels[i,j] = tuple(newVals) 
+        pixels[j,i] = tuple(newVals) 
         
-im.save("img_brightness.png") 
+im.save(f"{outDir}.png") 

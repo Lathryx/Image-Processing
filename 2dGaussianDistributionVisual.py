@@ -18,7 +18,7 @@ Z = gauss2d(X, Y, 1, 0, 0, 2.5, 2.5)
 print(len(X), len(Y), len(Z)) 
 
 ax.plot_surface(np.array(X), np.array(Y), np.array(Z), rstride=1, cstride=1, cmap='viridis', edgecolor='none') 
-
+ax.scatter(0, 0, 5, c='r', marker='o', alpha=0) # fixed height Z axis 
 
 axamp = plt.axes([0.1, 0.25, 0.0225, 0.63], facecolor='lightgoldenrodyellow') 
 amp_slider = Slider(
@@ -57,6 +57,7 @@ def update(val):
     ax.clear() 
     Z = gauss2d(X, Y, amp_slider.val, centerx_slider.val, centery_slider.val, 2.5, 2.5)
     ax.plot_surface(np.array(X), np.array(Y), np.array(Z), rstride=1, cstride=1, cmap='viridis', edgecolor='none') 
+    ax.scatter(0, 0, 5, c='r', marker='o', alpha=0) # fixed height Z axis 
 
 
 amp_slider.on_changed(update) 
